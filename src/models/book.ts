@@ -6,10 +6,13 @@ const bookSchema = new Schema<IBook>({
   desc: { type: String, required: true },
   isbn: { type: String, required: true },
   author: { type: String, required: true },
+  publish_date: { type: String, required: true },
+  language: { type: String, required: true },
   cover_url: { type: String, required: true },
-  qty: { type: Number, required: true },
+  pages: { type: Number, required: true },
+  is_available: { type: Boolean, required: true, default: true },
   created_at: { type: Date, required: true },
   updated_at: { type: Date, required: true },
 });
 
-export default model("book_store_book", bookSchema);
+export const Book = model("book_store_book", bookSchema);

@@ -11,4 +11,4 @@ const sessionSchema = new Schema<ISession>({
   created_at: { type: Date, required: true },
 });
 
-export default model("book_store_session", sessionSchema);
+export const Session = model("book_store_session", sessionSchema);

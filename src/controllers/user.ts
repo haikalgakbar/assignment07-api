@@ -3,7 +3,7 @@ import bycrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { IUser } from "../interfaces/user";
 import User from "../models/user";
-import session from "../models/session";
+import { Session } from "../models/session";
 import { ISession } from "../interfaces/session";
 import mongoose from "mongoose";
 
@@ -65,7 +65,7 @@ export const userController = {
         process.env.JWT_SECRET as string
       );
 
-      await new session<ISession>({
+      await new Session<ISession>({
         user: user._id as mongoose.Types.ObjectId,
         token,
         created_at: new Date(),

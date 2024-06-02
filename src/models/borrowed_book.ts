@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { IBorrowed_book } from "../interfaces/borrowed_book";
 
-const userSchema = new Schema<IBorrowed_book>({
+const borrowedBookSchema = new Schema<IBorrowed_book>({
   borrower: {
     type: Schema.Types.ObjectId,
     ref: "book_store_user",
@@ -15,4 +15,7 @@ const userSchema = new Schema<IBorrowed_book>({
   created_at: { type: Date, required: true },
 });
 
-export default model("book_store_borrowed_book", userSchema);
+export const Borrowed_book = model(
+  "book_store_borrowed_book",
+  borrowedBookSchema
+);
